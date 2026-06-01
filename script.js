@@ -250,3 +250,58 @@ if (heroCanvas && heroEl && window.matchMedia('(prefers-reduced-motion: no-prefe
     }, { threshold: 0 }).observe(heroEl);
   }
 }
+
+// ===== Rotating typewriter role (hero eyebrow) =====
+// Cycles through several role labels with a type-in / erase effect.
+const rotateEl = document.querySelector('.hero__rotate');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (rotateEl) {
+  let words = [];
+  try { words = JSON.parse(rotateEl.dataset.rotate || '[]'); } catch (e) { words = []; }
+  if (reduceMotion) {
+    // Honour reduced-motion: show the first role, no animation.
+    if (words.length) rotateEl.textContent = words[0];
+  } else if (words.length) {
+    let wi = 0, ci = 0, deleting = false;
+    const tick = () => {
+      const word = words[wi];
+      ci += deleting ? -1 : 1;
+      rotateEl.textContent = word.slice(0, ci);
+      let delay = deleting ? 45 : 85;
+      if (!deleting && ci === word.length) { delay = 1500; deleting = true; }
+      else if (deleting && ci === 0) { deleting = false; wi = (wi + 1) % words.length; delay = 320; }
+      setTimeout(tick, delay);
+    };
+    rotateEl.textContent = '';
+    setTimeout(tick, 700);
+  }
+}
+
+// ===== Hero cursor parallax =====
+// The background glow + grid drift opposite the pointer for a sense of depth.
+const heroParallax = document.getElementById('home');
+if (
+  heroParallax &&
+  window.matchMedia('(hover: hover) and (pointer: fine)').matches &&
+  window.matchMedia('(prefers-reduced-motion: no-preference)').matches
+) {
+  const bg = heroParallax.querySelector('.hero__bg');
+  const inner = heroParallax.querySelector('.hero__inner');
+  let ticking = false;
+  heroParallax.addEventListener('pointermove', (e) => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const r = heroParallax.getBoundingClientRect();
+      const dx = (e.clientX - r.left) / r.width - 0.5;
+      const dy = (e.clientY - r.top) / r.height - 0.5;
+      if (bg) bg.style.transform = 'translate(' + (dx * -22).toFixed(1) + 'px,' + (dy * -22).toFixed(1) + 'px)';
+      if (inner) inner.style.transform = 'translate(' + (dx * 6).toFixed(1) + 'px,' + (dy * 6).toFixed(1) + 'px)';
+      ticking = false;
+    });
+  });
+  heroParallax.addEventListener('pointerleave', () => {
+    if (bg) bg.style.transform = '';
+    if (inner) inner.style.transform = '';
+  });
+}

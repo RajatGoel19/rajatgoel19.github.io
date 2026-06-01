@@ -53,7 +53,9 @@
         <span class="hero__avatar-fallback">RG</span>
         <img src="assets/headshot.jpg" alt="Rajat Goel" onerror="this.dataset.f?this.remove():(this.dataset.f=1,this.src=this.src.replace('.jpg','.png'))" />
       </div>
-      <p class="hero__eyebrow reveal">Healthcare Data Scientist · AI Engineer</p>
+      <p class="hero__eyebrow reveal" aria-label="Healthcare Data Scientist and AI Engineer">
+        <span class="hero__rotate" data-rotate='["Healthcare Data Scientist","AI &amp; ML Engineer","PhD Candidate in AI","Predictive-Modeling Expert"]'>Healthcare Data Scientist</span><span class="hero__caret" aria-hidden="true"></span>
+      </p>
       <h1 class="hero__title reveal">Rajat Goel</h1>
       <p class="hero__subtitle reveal">
         I turn complex healthcare data into AI-driven solutions that
@@ -61,10 +63,16 @@
         <span class="hero__highlight">automate compliance</span>, and
         <span class="hero__highlight">improve patient outcomes</span>.
       </p>
-      <p class="hero__badge reveal">
-        <span class="hero__badge-dot"></span>
-        Currently pursuing a PhD in Artificial Intelligence
-      </p>
+      <div class="hero__badges reveal">
+        <span class="hero__badge">
+          <span class="hero__badge-dot"></span>
+          Working full-time at St. Peter&#x2019;s Health Partners
+        </span>
+        <span class="hero__badge">
+          <span class="hero__badge-dot"></span>
+          Pursuing an online PhD in Artificial Intelligence
+        </span>
+      </div>
       <div class="hero__actions reveal">
         <a href="#projects" class="btn btn--primary">View My Work</a>
         <a href="assets/Rajat-Goel-Resume.pdf" class="btn btn--ghost" target="_blank" rel="noopener" download>Download Résumé</a>
@@ -107,9 +115,10 @@
             I'm a <strong>Healthcare Data Scientist</strong> with <strong>10+ years of experience</strong>
             turning complex clinical and administrative data into insights that drive quality
             improvement, regulatory compliance, and operational efficiency across acute-care and
-            Medicaid settings. I currently lead nursing analytics at
-            <strong>St. Peter's Health Partners</strong>, building ML models that optimize care
-            delivery while keeping fairness and transparency at the center of clinical decisions.
+            Medicaid settings. I currently work full-time at
+            <strong>St. Peter's Health Partners</strong>, leading nursing analytics and building ML
+            models that optimize care delivery while keeping fairness and transparency at the
+            center of clinical decisions.
           </p>
           <p>
             My work spans <strong>readmission risk stratification</strong>, Medicaid compliance
@@ -121,7 +130,7 @@
             monthly visitors at 95% accuracy.
           </p>
           <p>
-            I'm currently <strong>pursuing a PhD in Artificial Intelligence</strong>, building on
+            I'm currently <strong>pursuing an online PhD in Artificial Intelligence</strong>, building on
             my <strong>Master's in Data Science from Clarkson University</strong> (4.0 GPA). Alongside
             my research, I contribute to the field as a peer reviewer for the
             <em>Baylor University Medical Center Proceedings</em> and a technical reviewer
@@ -133,7 +142,7 @@
           <ul class="about__list">
             <li><span>Role</span><strong>Sr. Data Analyst / Data Scientist</strong></li>
             <li><span>Focus</span><strong>Healthcare AI & Predictive Modeling</strong></li>
-            <li><span>Doctorate</span><strong>PhD in Artificial Intelligence — In Progress</strong></li>
+            <li><span>Doctorate</span><strong>PhD in Artificial Intelligence — Online · In Progress</strong></li>
             <li><span>Education</span><strong>MS, Data Science — Clarkson · 4.0 GPA</strong></li>
             <li><span>Location</span><strong>Albany, New York</strong></li>
             <li><span>Domains</span><strong>EHR/EMR · CMS · HIPAA · GenAI</strong></li>

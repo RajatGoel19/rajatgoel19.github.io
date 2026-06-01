@@ -206,7 +206,18 @@ ul { list-style: none; }
   font-weight: 600;
   color: var(--teal-400);
   margin-bottom: 20px;
+  min-height: 1.3em;
 }
+.hero__caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 4px;
+  vertical-align: -2px;
+  background: var(--teal-400);
+  animation: caretBlink 1s steps(1) infinite;
+}
+@keyframes caretBlink { 50% { opacity: 0; } }
 .hero__title {
   font-family: var(--font-head);
   font-weight: 800;
@@ -222,11 +233,16 @@ ul { list-style: none; }
   margin-bottom: 24px;
 }
 .hero__highlight { color: var(--teal-400); font-weight: 600; }
+.hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 36px;
+}
 .hero__badge {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 36px;
   padding: 9px 18px;
   border-radius: 999px;
   background: rgba(45, 212, 191, 0.10);
@@ -840,6 +856,38 @@ ul { list-style: none; }
   animation: shimmer 6s linear infinite;
 }
 @keyframes shimmer { to { background-position: 200% center; } }
+/* Slow living wash over the hero gradient — gives a video-like sense of motion */
+.hero {
+  background-size: 150% 150%;
+  animation: heroWash 26s ease-in-out infinite alternate;
+}
+@keyframes heroWash {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+/* Periodic light sweep across the name */
+.hero__title {
+  background: linear-gradient(100deg, #ffffff 0%, #ffffff 38%, #bdf3ec 50%, #ffffff 62%, #ffffff 100%);
+  background-size: 240% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: nameSheen 8s ease-in-out infinite;
+}
+@keyframes nameSheen {
+  0%, 14%   { background-position: 180% center; }
+  86%, 100% { background-position: -120% center; }
+}
+/* Respect reduced-motion: freeze the continuous hero animations */
+@media (prefers-reduced-motion: reduce) {
+  .hero,
+  .hero__title,
+  .hero__caret,
+  .hero__bg::before,
+  .hero__bg::after { animation: none; }
+  .hero__title { background-position: 0 center; }
+}
 /* Cursor-reactive spotlight glow on cards */
 .service-card, .project-card, .cert-card, .skill-card { position: relative; }
 .service-card::before, .project-card::before, .cert-card::before, .skill-card::before {
