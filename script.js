@@ -145,8 +145,8 @@ if (heroCanvas && heroEl && window.matchMedia('(prefers-reduced-motion: no-prefe
   const mouse = { x: -9999, y: -9999 };
   let w = 0, h = 0, dpr = 1, particles = [], raf = null;
   const rand = (min, max) => Math.random() * (max - min) + min;
-  const LINK = 128;   // px distance to draw a connecting line
-  const PULL = 150;   // px radius the cursor influences
+  const LINK = 138;   // px distance to draw a line between two nodes
+  const PULL = 200;   // px radius the cursor influences
 
   const build = () => {
     dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -157,32 +157,53 @@ if (heroCanvas && heroEl && window.matchMedia('(prefers-reduced-motion: no-prefe
     heroCanvas.style.width = w + 'px';
     heroCanvas.style.height = h + 'px';
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const count = Math.max(22, Math.min(76, Math.round((w * h) / 16000)));
-    particles = Array.from({ length: count }, () => ({
-      x: rand(0, w), y: rand(0, h),
-      vx: rand(-0.22, 0.22), vy: rand(-0.22, 0.22),
-      r: rand(1, 2.4),
-    }));
+    const count = Math.max(32, Math.min(92, Math.round((w * h) / 14000)));
+    particles = Array.from({ length: count }, () => {
+      const ang = rand(0, Math.PI * 2);
+      const spd = rand(0.12, 0.36);
+      return {
+        x: rand(0, w), y: rand(0, h),
+        vx: Math.cos(ang) * spd, vy: Math.sin(ang) * spd,
+        r: rand(1.3, 3),
+      };
+    });
   };
 
   const draw = () => {
     ctx.clearRect(0, 0, w, h);
+    const mouseOn = mouse.x > -9000;
     for (let i = 0; i < particles.length; i++) {
       const p = particles[i];
-      const dxm = mouse.x - p.x, dym = mouse.y - p.y;
-      const dm = Math.hypot(dxm, dym);
-      if (dm < PULL && dm > 0.1) {
-        p.vx += (dxm / dm) * 0.012;
-        p.vy += (dym / dm) * 0.012;
-      }
+      // constant ambient drift — never decays, so the field is always moving
       p.x += p.vx; p.y += p.vy;
-      p.vx *= 0.99; p.vy *= 0.99;
-      if (p.x < 0) p.x = w; else if (p.x > w) p.x = 0;
-      if (p.y < 0) p.y = h; else if (p.y > h) p.y = 0;
+      if (p.x < -10) p.x = w + 10; else if (p.x > w + 10) p.x = -10;
+      if (p.y < -10) p.y = h + 10; else if (p.y > h + 10) p.y = -10;
+      // cursor interaction: nudge toward the pointer + draw a beam to it
+      if (mouseOn) {
+        const dxm = mouse.x - p.x, dym = mouse.y - p.y;
+        const dm = Math.hypot(dxm, dym);
+        if (dm < PULL && dm > 0.1) {
+          const f = 1 - dm / PULL;
+          p.x += (dxm / dm) * f * 0.6;
+          p.y += (dym / dm) * f * 0.6;
+          ctx.beginPath();
+          ctx.moveTo(mouse.x, mouse.y);
+          ctx.lineTo(p.x, p.y);
+          ctx.strokeStyle = 'rgba(94, 234, 212, ' + (0.5 * f).toFixed(3) + ')';
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      }
+      // glowing node: soft halo + bright core
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r * 3.2, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(45, 212, 191, 0.10)';
+      ctx.fill();
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(45, 212, 191, 0.55)';
+      ctx.fillStyle = 'rgba(130, 240, 222, 0.95)';
       ctx.fill();
+      // lines between neighbouring nodes
       for (let j = i + 1; j < particles.length; j++) {
         const q = particles[j];
         const dx = p.x - q.x, dy = p.y - q.y;
@@ -191,11 +212,19 @@ if (heroCanvas && heroEl && window.matchMedia('(prefers-reduced-motion: no-prefe
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(q.x, q.y);
-          ctx.strokeStyle = 'rgba(45, 212, 191, ' + (0.18 * (1 - d / LINK)).toFixed(3) + ')';
+          ctx.strokeStyle = 'rgba(45, 212, 191, ' + (0.4 * (1 - d / LINK)).toFixed(3) + ')';
           ctx.lineWidth = 1;
           ctx.stroke();
         }
       }
+    }
+    // soft glow that follows the cursor
+    if (mouseOn) {
+      const g = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 100);
+      g.addColorStop(0, 'rgba(45, 212, 191, 0.22)');
+      g.addColorStop(1, 'rgba(45, 212, 191, 0)');
+      ctx.fillStyle = g;
+      ctx.fillRect(mouse.x - 100, mouse.y - 100, 200, 200);
     }
     raf = requestAnimationFrame(draw);
   };
