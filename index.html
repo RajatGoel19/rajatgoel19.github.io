@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rajat Goel — Healthcare Data Scientist & AI Expert</title>
+  <meta name="description" content="Rajat Goel — Senior Data Analyst and Data Scientist specializing in healthcare AI, predictive modeling, and Generative AI. Building data-driven solutions that improve patient outcomes." />
+  <meta name="author" content="Rajat Goel" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Rajat Goel — Healthcare Data Scientist & AI Expert" />
+  <meta property="og:description" content="Senior Data Analyst & Data Scientist specializing in healthcare AI, predictive modeling, and Generative AI." />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#home" class="nav__brand">RG<span class="nav__brand-dot">.</span></a>
+      <nav class="nav__menu" id="navMenu">
+        <a href="#about" class="nav__link">About</a>
+        <a href="#skills" class="nav__link">Skills</a>
+        <a href="#experience" class="nav__link">Experience</a>
+        <a href="#research" class="nav__link">Research</a>
+        <a href="#projects" class="nav__link">Projects</a>
+        <a href="#services" class="nav__link">Services</a>
+        <a href="#gallery" class="nav__link">Gallery</a>
+        <a href="#certifications" class="nav__link">Certifications</a>
+        <a href="#recommendations" class="nav__link">Recommendations</a>
+        <a href="#contact" class="nav__link nav__link--cta">Contact</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="container hero__inner">
+      <div class="hero__avatar reveal">
+        <span class="hero__avatar-fallback">RG</span>
+        <img src="assets/headshot.jpg" alt="Rajat Goel" onerror="this.dataset.f?this.remove():(this.dataset.f=1,this.src=this.src.replace('.jpg','.png'))" />
+      </div>
+      <p class="hero__eyebrow reveal">Healthcare Data Scientist · AI Engineer</p>
+      <h1 class="hero__title reveal">Rajat Goel</h1>
+      <p class="hero__subtitle reveal">
+        I turn complex healthcare data into AI-driven solutions that
+        <span class="hero__highlight">reduce readmissions</span>,
+        <span class="hero__highlight">automate compliance</span>, and
+        <span class="hero__highlight">improve patient outcomes</span>.
+      </p>
+      <p class="hero__badge reveal">
+        <span class="hero__badge-dot"></span>
+        Currently pursuing a PhD in Artificial Intelligence
+      </p>
+      <div class="hero__actions reveal">
+        <a href="#projects" class="btn btn--primary">View My Work</a>
+        <a href="assets/Rajat-Goel-Resume.pdf" class="btn btn--ghost" target="_blank" rel="noopener" download>Download Résumé</a>
+        <a href="#contact" class="btn btn--ghost">Get in Touch</a>
+      </div>
+      <div class="hero__stats reveal">
+        <div class="stat">
+          <span class="stat__num" data-target="89" data-suffix="%">0</span>
+          <span class="stat__label">Model Accuracy</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num" data-target="50" data-suffix="%">0</span>
+          <span class="stat__label">Efficiency Gains via AI</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num" data-target="2" data-suffix="M+">0</span>
+          <span class="stat__label">Medicaid Claims Analyzed</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num" data-target="200" data-suffix="+">0</span>
+          <span class="stat__label">Clinicians Trained</span>
+        </div>
+      </div>
+    </div>
+    <a href="#about" class="hero__scroll" aria-label="Scroll to about">
+      <span></span>
+    </a>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="section__kicker">01 — About</span>
+        <h2 class="section__title">Data science with a clinical purpose</h2>
+      </div>
+      <div class="about__grid">
+        <div class="about__lead reveal">
+          <p>
+            I'm a <strong>Healthcare Data Scientist</strong> with <strong>10+ years of experience</strong>
+            turning complex clinical and administrative data into insights that drive quality
+            improvement, regulatory compliance, and operational efficiency across acute-care and
+            Medicaid settings. I currently lead nursing analytics at
+            <strong>St. Peter's Health Partners</strong>, building ML models that optimize care
+            delivery while keeping fairness and transparency at the center of clinical decisions.
+          </p>
+          <p>
+            My work spans <strong>readmission risk stratification</strong>, Medicaid compliance
+            automation with Microsoft Copilot agents, and large-scale clinical analytics in
+            Python, SQL, Azure, Snowflake, and Tableau — with a track record of
+            <strong>50% efficiency gains</strong> through AI automation and <strong>89% accuracy</strong>
+            in predictive healthcare models, always under 100% HIPAA adherence. I'm also the
+            co-founder of <strong>ToraTax</strong>, an AI-powered tax platform serving 3,000+
+            monthly visitors at 95% accuracy.
+          </p>
+          <p>
+            I'm currently <strong>pursuing a PhD in Artificial Intelligence</strong>, building on
+            my <strong>Master's in Data Science from Clarkson University</strong> (4.0 GPA). Alongside
+            my research, I contribute to the field as a peer reviewer for the
+            <em>Baylor University Medical Center Proceedings</em> and a technical reviewer
+            for Manning Publications.
+          </p>
+        </div>
+        <aside class="about__card reveal">
+          <h3 class="about__card-title">At a glance</h3>
+          <ul class="about__list">
+            <li><span>Role</span><strong>Sr. Data Analyst / Data Scientist</strong></li>
+            <li><span>Focus</span><strong>Healthcare AI & Predictive Modeling</strong></li>
+            <li><span>Doctorate</span><strong>PhD in Artificial Intelligence — In Progress</strong></li>
+            <li><span>Education</span><strong>MS, Data Science — Clarkson · 4.0 GPA</strong></li>
+            <li><span>Location</span><strong>Albany, New York</strong></li>
+            <li><span>Domains</span><strong>EHR/EMR · CMS · HIPAA · GenAI</strong></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="section section--alt" id="skills">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="section__kicker">02 — Skills</span>
+        <h2 class="section__title">A full-stack data toolkit</h2>
+      </div>
+      <div class="skills__grid">
+        <div class="skill-card reveal">
+          <h3 class="skill-card__title">Languages & Analytics</h3>
+          <div class="pills">
+            <span class="pill">Python</span>
+            <span class="pill">Pandas</span>
+            <span class="pill">NumPy</span>
+            <span class="pill">R</span>
+            <span class="pill">SQL</span>
+            <span class="pill">SAS</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h3 class="skill-card__title">Machine Learning & AI</h3>
+          <div class="pills">
+            <span class="pill">Predictive Modeling</span>
+            <span class="pill">XGBoost</span>
+            <span class="pill">EBM</span>
+            <span class="pill">Logistic Regression</span>
+            <span class="pill">NLP</span>
+            <span class="pill">Generative AI</span>
+            <span class="pill">RAG</span>
+            <span class="pill">Microsoft Copilot</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h3 class="skill-card__title">Data Engineering & BI</h3>
+          <div class="pills">
+            <span class="pill">Tableau</span>
+            <span class="pill">Power BI</span>
+            <span class="pill">Azure Data Factory</span>
+            <span class="pill">Matillion</span>
+            <span class="pill">ETL Pipelines</span>
+            <span class="pill">REDCap</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h3 class="skill-card__title">Cloud & Data Platforms</h3>
+          <div class="pills">
+            <span class="pill">Azure</span>
+            <span class="pill">AWS S3</span>
+            <span class="pill">AWS Redshift</span>
+            <span class="pill">Snowflake</span>
+            <span class="pill">Apache Airflow</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h3 class="skill-card__title">Healthcare Domain</h3>
+          <div class="pills">
+            <span class="pill">EHR / EMR (Epic, Cerner)</span>
+            <span class="pill">HL7</span>
+            <span class="pill">CMS Regulations</span>
+            <span class="pill">HIPAA</span>
+            <span class="pill">Medicaid Analytics</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h3 class="skill-card__title">Collaboration</h3>
+          <div class="pills">
+            <span class="pill">Stakeholder Communication</span>
+            <span class="pill">Project Management</span>
+            <span class="pill">Clinical Training</span>
+            <span class="pill">Requirements Analysis</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="section" id="experience">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="section__kicker">03 — Experience</span>
+        <h2 class="section__title">Where I've made an impact</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline__item reveal">
+          <div class="timeline__marker"></div>
+          <div class="timeline__content">
+            <div class="timeline__meta">
+              <span class="timeline__date">Oct 2025 — Present</span>
+              <span class="timeline__place">Albany, NY</span>
+            </div>
+            <h3 class="timeline__role">AI Data Analyst / Scientist — Nursing Analytics</h3>
+            <p class="timeline__org">St. Peter's Health Partners</p>
+            <ul class="timeline__points">
+              <li>Analyzing 50,000+ nursing records to surface actionable clinical insights.</li>
+              <li>Drove an <strong>8% reduction in 30-day readmissions</strong> and a <strong>12% drop in patient incidents</strong> through data-driven interventions.</li>
+              <li>Built a fairness and transparency framework so ML-driven care recommendations stay equitable and auditable.</li>
+              <li>Trained 200+ nurses on analytics-informed workflows, cutting escalation response time by 25%.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline__item reveal">
+          <div class="timeline__marker"></div>
+          <div class="timeline__content">
+            <div class="timeline__meta">
+              <span class="timeline__date">Jan 2023 — Oct 2025</span>
+              <span class="timeline__place">Albany, NY</span>
+            </div>
+            <h3 class="timeline__role">Senior Data Analyst / Technical Product Manager — Gen AI</h3>
+            <p class="timeline__org">IPRO (Island Peer Review Organization)</p>
+            <ul class="timeline__points">
+              <li>Built Microsoft Copilot AI agents for Medicaid compliance — a <strong>50% reduction in manpower</strong> with 100% HIPAA adherence.</li>
+              <li>Developed predictive models on <strong>2M+ Ohio Medicaid claims at 89% accuracy</strong>, used by 150+ care teams.</li>
+              <li>Engineered 6 ETL pipelines (Matillion, Azure Data Factory) that cut processing time by 30%.</li>
+              <li>Designed an ATR framework that reduced reporting cycle time by 50%.</li>
+              <li>Consolidated 15+ Tableau dashboards, enabling 40% faster decision-making.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline__item reveal">
+          <div class="timeline__marker"></div>
+          <div class="timeline__content">
+            <div class="timeline__meta">
+              <span class="timeline__date">Jul 2022 — Dec 2022</span>
+              <span class="timeline__place">White Plains, NY</span>
+            </div>
+            <h3 class="timeline__role">Data Analyst Intern</h3>
+            <p class="timeline__org">AutoNation</p>
+            <ul class="timeline__points">
+              <li>Migrated MS SQL data infrastructure to AWS and Snowflake, orchestrating reliable pipelines with Apache Airflow.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline__item reveal">
+          <div class="timeline__marker"></div>
+          <div class="timeline__content">
+            <div class="timeline__meta">
+              <span class="timeline__date">Nov 2021 — Jul 2022</span>
+              <span class="timeline__place">Potsdam, NY</span>
+            </div>
+            <h3 class="timeline__role">Research Assistant</h3>
+            <p class="timeline__org">Clarkson University — Graduate School</p>
+            <ul class="timeline__points">
+              <li>Built a CNN-based facial emotion-detection model, improving classification accuracy by over 50%.</li>
+              <li>Analyzed COVID-19 trends in R to support public-health research and visualization.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline__item reveal">
+          <div class="timeline__marker"></div>
+          <div class="timeline__content">
+            <div class="timeline__meta">
+              <span class="timeline__date">Mar 2018 — Jun 2021</span>
+              <span class="timeline__place">India</span>
+            </div>
+            <h3 class="timeline__role">Business Analyst</h3>
+            <p class="timeline__org">Maa Ambey Traders</p>
+            <ul class="timeline__points">
+              <li>Analyzed food-grain sales and inventory data to lift revenue by <strong>15%</strong>.</li>
+              <li>Built demand-forecasting models in R and Excel pivot dashboards that improved planning efficiency by 20%.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research & Publications -->
+  <section class="section section--alt" id="research">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="section__kicker">04 — Research & Publications</span>
+        <h2 class="section__title">Contributing to the field</h2>
+      </div>
+      <div class="research__grid">
+        <article class="research-card research-card--feature reveal">
+          <span class="research-card__tag">Peer-Reviewed Publication</span>
+          <h3 class="research-card__title">Readmission Prevention in Healthcare using AI</h3>
+          <p class="research-card__venue">KES 2026 · Published by Elsevier B.V.</p>
+          <p class="research-card__desc">
+            An Explainable Boosting Machine (EBM) approach to facility-level CMS readmission
+            risk stratification — making predictive models transparent and actionable for
+            clinical decision-makers.
+          </p>
+          <p class="research-card__authors">
+            Rajat Goel, Atif Farid Mohammad, Srikar Vuppala, Divya Praneetha Viswanadham
+            <span>· University of the Cumberlands</span>
+          </p>
+        </article>
+
+        <article class="research-card reveal">
+          <span class="research-card__tag">Peer Reviewer</span>
+          <h3 class="research-card__title">Baylor University Medical Center Proceedings</h3>
+          <p class="research-card__desc">
+            Invited reviewer for manuscripts on the application of AI and machine learning
+            in clinical medicine.
+          </p>
+        </article>
+
+        <article class="research-card reveal">
+          <span class="research-card__tag">Technical Reviewer</span>
+          <h3 class="research-card__title">Manning Publications</h3>
+          <p class="research-card__desc">
+            Technical reviewer for data science and AI titles, helping ensure accuracy and
+            clarity for a global developer audience.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="section__kicker">05 — Projects</span>
+        <h2 class="section__title">Selected work</h2>
+      </div>
+      <div class="projects__grid">
+        <article class="project-card reveal">
+          <div class="project-card__top">
+            <h3 class="project-card__title">ToraTax — AI Tax Platform</h3>
+            <span class="project-card__badge">Co-Founder</span>
+          </div>
+          <p class="project-card__desc">
+            An AI-powered tax filing and calculation platform for the Indian market.
+            Built with Generative AI, RAG, and agentic workflows — serving 3,000+ monthly visitors.
+          </p>
+          <div class="pills pills--sm">
+            <span class="pill">Generative AI</span>
+            <span class="pill">RAG</span>
+            <span class="pill">React</span>
+            <span class="pill">Firebase</span>
+          </div>
+          <a href="https://www.toratax.com" target="_blank" rel="noopener" class="project-card__link">
+            Visit toratax.com →
+          </a>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-card__top">
+            <h3 class="project-card__title">Readmission Prevention in Healthcare</h3>
+            <span class="project-card__badge">Research</span>
+          </div>
+          <p class="project-card__desc">
+            Predictive modeling on CMS datasets comparing Logistic Regression, Random Forest,
+            Gradient Boosting, SVM, XGBoost, EBM, and stacked ensembles for hospital
+            readmission risk.
+          </p>
+          <div class="pills pills--sm">
+            <span class="pill">Python</span>
+            <span class="pill">XGBoost</span>
+            <span class="pill">EBM</span>
+            <span class="pill">CMS Data</span>
+          </div>
+          <a href="https://github.com/RajatGoel19/Readmission-Prevention-in-Healthcare-using-AI" target="_blank" rel="noopener" class="project-card__link">
+            View on GitHub →
+          </a>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-card__top">
+            <h3 class="project-card__title">Medicaid Compliance AI Agents</h3>
+            <span class="project-card__badge">Enterprise</span>
+          </div>
+          <p class="project-card__desc">
+            Microsoft Copilot AI agents that automate Medicaid compliance QA — reducing
+            manpower by 50% while maintaining 100% HIPAA compliance across care-team workflows.
+          </p>
+          <div class="pills pills--sm">
+            <span class="pill">Microsoft Copilot</span>
+            <span class="pill">Generative AI</span>
+            <span class="pill">HIPAA</span>
+            <span class="pill">Automation</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section section--alt" id="services">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="section__kicker">06 — Services</span>
+        <h2 class="section__title">How I can help</h2>
+      </div>
+      <div class="services__grid">
+        <article class="service-card reveal">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          </div>
+          <h3 class="service-card__title">Healthcare AI &amp; Predictive Modeling</h3>
+          <p class="service-card__desc">
+            Risk-stratification and predictive models for clinical outcomes &mdash; readmission
+            prevention, patient-incident reduction, and quality-measure analytics built on EHR and CMS data.
+          </p>
+          <div class="pills pills--sm">
+            <span class="pill">Predictive Modeling</span>
+            <span class="pill">Risk Stratification</span>
+            <span class="pill">Clinical Analytics</span>
+          </div>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+          </div>
+          <h3 class="service-card__title">Generative AI &amp; Agentic Systems</h3>
+          <p class="service-card__desc">
+            Production GenAI builds &mdash; RAG pipelines, LLM copilots and chatbots, document
+            intelligence, and autonomous agents that automate knowledge-heavy workflows.
+          </p>
+          <div class="pills pills--sm">
+            <span class="pill">RAG</span>
+            <span class="pill">LLM Copilots</span>
+            <span class="pill">AI Agents</span>
+            <span class="pill">Document Intelligence</span>
+          </div>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          </div>
+          <h3 class="service-card__title">Data Analytics &amp; BI</h3>
+          <p class="service-card__desc">
+            End-to-end analytics &mdash; ETL pipelines, data modeling, and executive dashboards in
+            Tableau and Power BI that turn raw healthcare data into decisions.
+          </p>
+          <div class="pills pills--sm">
+            <span class="pill">Dashboards</span>
+            <span class="pill">ETL Pipelines</span>
+            <span class="pill">Tableau</span>
+            <span class="pill">Power BI</span>
+          </div>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          </div>
+          <h3 class="service-card__title">AI Advisory &amp; Technical Review</h3>
+          <p class="service-card__desc">
+            AI strategy and roadmap consulting for healthcare and data teams, plus manuscript
+            and book technical review for journals and publishers.
+          </p>
+          <div class="pills pills--sm">
+            <span class="pill">AI Strategy</span>
+            <span class="pill">Peer Review</span>
+            <span class="pill">Technical Editing</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="section" id="gallery">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="section__kicker">07 — Gallery</span>
+        <h2 class="section__title">Milestones &amp; moments</h2>
+      </div>
+      <div class="gallery">
+        <figure class="gallery__item reveal">
+          <img src="assets/grad.jpg" alt="Master&#x2019;s commencement" onerror="this.dataset.f?this.remove():(this.dataset.f=1,this.src=this.src.replace('.jpg','.png'))" />
+          <figcaption class="gallery__cap">Master&#x2019;s Commencement &mdash; Clarkson University</figcaption>
+        </figure>
+        <figure class="gallery__item reveal">
+          <img src="assets/gtc.jpg" alt="NVIDIA GTC, San Jose" onerror="this.dataset.f?this.remove():(this.dataset.f=1,this.src=this.src.replace('.jpg','.png'))" />
+          <figcaption class="gallery__cap">NVIDIA GTC &mdash; San Jose</figcaption>
+        </figure>
+        <figure class="gallery__item reveal">
+          <img src="assets/sf.jpg" alt="Golden Gate, San Francisco" onerror="this.dataset.f?this.remove():(this.dataset.f=1,this.src=this.src.replace('.jpg','.png'))" />
+          <figcaption class="gallery__cap">Golden Gate &mdash; San Francisco</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section class="section section--alt" id="certifications">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="section__kicker">08 — Certifications</span>
+        <h2 class="section__title">Licenses &amp; certifications</h2>
+      </div>
+      <div class="cert-filter reveal" id="certFilter">
+        <button class="cert-filter__btn is-active" data-filter="all">All</button>
+        <button class="cert-filter__btn" data-filter="ai">AI &amp; GenAI</button>
+        <button class="cert-filter__btn" data-filter="data">Data &amp; BI</button>
+        <button class="cert-filter__btn" data-filter="pro">Professional</button>
+        <button class="cert-filter__btn" data-filter="wellness">Wellness &amp; Safety</button>
+      </div>
+      <div class="cert-grid" id="certGrid">
+        <article class="cert-card reveal" data-cat="ai">
+          <div class="cert-card__head">
+            <span class="cert-card__logo">DL</span>
+            <span class="cert-card__date">Aug 2024</span>
+          </div>
+          <h3 class="cert-card__title">Generative AI with Large Language Models</h3>
+          <p class="cert-card__issuer">DeepLearning.AI &amp; Amazon Web Services</p>
+          <p class="cert-card__id">Credential ID X9FE24I6R6XX</p>
+        </article>
+
+        <article class="cert-card reveal" data-cat="ai">
+          <div class="cert-card__head">
+            <span class="cert-card__logo">G</span>
+            <span class="cert-card__date">Mar 2024</span>
+          </div>
+          <h3 class="cert-card__title">Introduction to Generative AI</h3>
+          <p class="cert-card__issuer">Google</p>
+          <p class="cert-card__id">Credential ID 8319090</p>
+        </article>
+
+        <article class="cert-card reveal" data-cat="ai">
+          <div class="cert-card__head">
+            <span class="cert-card__logo">U</span>
+            <span class="cert-card__date">Oct 2021</span>
+          </div>
+          <h3 class="cert-card__title">Python for Data Science &amp; Machine Learning Bootcamp</h3>
+          <p class="cert-card__issuer">Udemy</p>
+        </article>
+
+        <article class="cert-card reveal" data-cat="data">
+          <div class="cert-card__head">
+            <span class="cert-card__logo">in</span>
+            <span class="cert-card__date">Dec 2022</span>
+          </div>
+          <h3 class="cert-card__title">Tableau for Data Scientists</h3>
+          <p class="cert-card__issuer">LinkedIn</p>
+        </article>
+
+        <article class="cert-card reveal" data-cat="data">
+          <div class="cert-card__head">
+            <span class="cert-card__logo">in</span>
+            <span class="cert-card__date">Nov 2022</span>
+          </div>
+          <h3 class="cert-card__title">SAS 9.4 Cert Prep: Part 01 &mdash; SAS Programming Essentials</h3>
+          <p class="cert-card__issuer">LinkedIn</p>
+        </article>
+
+        <article class="cert-card reveal" data-cat="data">
+          <div class="cert-card__head">
+            <span class="cert-card__logo">in</span>
+            <span class="cert-card__date">Nov 2022</span>
+          </div>
+          <h3 class="cert-card__title">Learning Data Visualization</h3>
+          <p class="cert-card__issuer">LinkedIn</p>
+        </article>
+
+        <article class="cert-card reveal" data-cat="data">
+          <div class="cert-card__head">
+            <span class="cert-card__logo">in</span>
+            <span class="cert-card__date">Oct 2022</span>
+          </div>
+          <h3 class="cert-card__title">Data Storytelling Basics</h3>
+          <p class="cert-card__issuer">LinkedIn</p>
+        </article>
+
+        <article class="cert-card reveal" data-cat="data">
+          <div class="cert-card__head">
+            <span class="cert-card__logo">SF</span>
+            <span class="cert-card__date">Aug 2022</span>
+          </div>
+          <h3 class="cert-card__title">Hands On Essentials &mdash; Data Warehouse</h3>
+          <p class="cert-card__issuer">Snowflake</p>
+        </article>
+
+        <article class="cert-card reveal" data-cat="data">
+          <div class="cert-card__head">
+            <span class="cert-card__logo">U</span>
+            <span class="cert-card__date">Dec 2021</span>
+          </div>
+          <h3 class="cert-card__title">Microsoft Excel &mdash; Data Analysis with Pivot Tables</h3>
+          <p class="cert-card__issuer">Udemy</p>
+        </article>
+
+        <article class="cert-card reveal" data-cat="data">
+          <div class="cert-card__head">
+            <span class="cert-card__logo">U</span>
+            <span class="cert-card__date">Nov 2021</span>
+          </div>
+          <h3 class="cert-card__title">R Shiny Flex Dashboard &mdash; Interactive Data Visualization</h3>
+          <p class="cert-card__issuer">Udemy</p>
+        </article>
+
+        <article class="cert-card reveal" data-cat="pro">
+          <div class="cert-card__head">
+            <span class="cert-card__logo">in</span>
+            <span class="cert-card__date">Oct 2022</span>
+          </div>
+          <h3 class="cert-card__title">The Non-Technical Skills of Effective Data Scientists</h3>
+          <p class="cert-card__issuer">LinkedIn</p>
+        </article>
+
+        <article class="cert-card reveal" data-cat="pro">
+          <div class="cert-card__head">
+            <span class="cert-card__logo">in</span>
+            <span class="cert-card__date">Oct 2022</span>
+          </div>
+          <h3 class="cert-card__title">Prepare for Your Data Science Interview</h3>
+          <p class="cert-card__issuer">LinkedIn</p>
+        </article>
+
+        <article class="cert-card reveal" data-cat="wellness">
+          <div class="cert-card__head">
+            <span class="cert-card__logo">ACE</span>
+            <span class="cert-card__date">Jul 2019</span>
+          </div>
+          <h3 class="cert-card__title">Nutritionist</h3>
+          <p class="cert-card__issuer">American Council on Exercise (ACE)</p>
+        </article>
+
+        <article class="cert-card reveal" data-cat="wellness">
+          <div class="cert-card__head">
+            <span class="cert-card__logo">ACE</span>
+            <span class="cert-card__date">Jul 2018</span>
+          </div>
+          <h3 class="cert-card__title">Master Personal Trainer Certification</h3>
+          <p class="cert-card__issuer">American Council on Exercise (ACE)</p>
+        </article>
+
+        <article class="cert-card reveal" data-cat="wellness">
+          <div class="cert-card__head">
+            <span class="cert-card__logo">RC</span>
+            <span class="cert-card__date">Jan 2018</span>
+          </div>
+          <h3 class="cert-card__title">CPR &amp; AED</h3>
+          <p class="cert-card__issuer">Intl. Federation of Red Cross &amp; Red Crescent (IFRC)</p>
+        </article>
+      </div>
+      <div class="cert-cta reveal">
+        <a href="https://www.linkedin.com/in/rajatgoel-data-scientist-analyst/" target="_blank" rel="noopener" class="btn btn--ghost-dark">View all credentials on LinkedIn →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recommendations -->
+  <section class="section" id="recommendations">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="section__kicker">09 — Recommendations</span>
+        <h2 class="section__title">What colleagues say</h2>
+      </div>
+      <div class="testi-grid">
+        <article class="testi-card reveal">
+          <span class="testi-card__quote" aria-hidden="true">&#x201C;</span>
+          <p class="testi-card__text">
+            I&#x2019;ve had the opportunity to work with Rajat at Clarkson as graduate classmates
+            and as coworkers at IPRO. He&#x2019;s very hard working and is always trying to improve
+            on his skills every day. He has the passion and the drive to continue learning, he
+            demonstrates strong attention to detail, and he&#x2019;s very diligent with his studies
+            and projects. Lastly, Rajat has a great balance of autonomy and collaboration.
+          </p>
+          <div class="testi-card__person">
+            <span class="testi-card__avatar" aria-hidden="true">JT</span>
+            <span class="testi-card__meta">
+              <span class="testi-card__name">Joe Tronco, MBA, MS-ADS</span>
+              <span class="testi-card__role">Senior Data Analyst, IPRO</span>
+              <span class="testi-card__rel">Managed Rajat directly · Feb 2023</span>
+            </span>
+          </div>
+        </article>
+
+        <article class="testi-card reveal">
+          <span class="testi-card__quote" aria-hidden="true">&#x201C;</span>
+          <p class="testi-card__text">
+            Raj is brilliant with SQL and has an awesome work ethic. I should also say that he
+            takes his fitness seriously &mdash; he doesn&#x2019;t joke with his gym time.
+          </p>
+          <div class="testi-card__person">
+            <span class="testi-card__avatar" aria-hidden="true">FO</span>
+            <span class="testi-card__meta">
+              <span class="testi-card__name">Faith Oyedemi</span>
+              <span class="testi-card__role">AI &amp; Quantum Systems</span>
+              <span class="testi-card__rel">Worked with Rajat · Mar 2022</span>
+            </span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section section--contact" id="contact">
+    <div class="container">
+      <div class="contact__inner reveal">
+        <span class="section__kicker section__kicker--center">10 — Contact</span>
+        <h2 class="contact__title">Let's build something impactful</h2>
+        <p class="contact__lead">
+          I'm always open to conversations about healthcare AI, data science collaborations,
+          and research. Reach out — I'd love to hear from you.
+        </p>
+        <div class="contact__actions">
+          <a href="mailto:rajatgoel19@gmail.com" class="btn btn--primary">rajatgoel19@gmail.com</a>
+          <a href="tel:+13152611639" class="btn btn--ghost">315-261-1639</a>
+        </div>
+        <div class="contact__socials">
+          <a href="https://www.linkedin.com/in/rajatgoel-data-scientist-analyst/" target="_blank" rel="noopener" class="contact__social">LinkedIn</a>
+          <a href="https://github.com/RajatGoel19" target="_blank" rel="noopener" class="contact__social">GitHub</a>
+          <a href="https://www.toratax.com" target="_blank" rel="noopener" class="contact__social">ToraTax</a>
+          <a href="assets/Rajat-Goel-Resume.pdf" target="_blank" rel="noopener" class="contact__social" download>Résumé</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© <span id="year"></span> Rajat Goel</span>
+      <span class="footer__note">Healthcare Data Scientist · AI Engineer</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

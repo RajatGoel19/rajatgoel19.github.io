@@ -1,0 +1,10 @@
+# OS / editor junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Unused personal photos — kept locally, excluded from the public site
+assets/IMG_2406.PNG
+assets/IMG_2407.PNG
+assets/IMG_3604.JPG
+assets/1f65a260-d8e7-4b2f-b2ab-b2537954a17d.JPG
