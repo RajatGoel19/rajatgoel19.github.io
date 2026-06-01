@@ -497,6 +497,33 @@ ul { list-style: none; }
 .research-card--feature .research-card__desc { color: rgba(255, 255, 255, 0.80); }
 .research-card__authors { font-size: 14px; color: rgba(255, 255, 255, 0.62); }
 .research-card__authors span { color: var(--teal-400); }
+.research-card__reviewed {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--slate-light);
+  margin-bottom: 12px;
+}
+.research-card__list { list-style: none; display: grid; gap: 11px; }
+.research-card__list li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 14.5px;
+  line-height: 1.45;
+  color: var(--slate);
+  font-style: italic;
+}
+.research-card__list li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 8px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--teal-600);
+}
 
 /* ===== Projects ===== */
 .projects__grid {
