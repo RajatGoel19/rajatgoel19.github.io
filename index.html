@@ -47,6 +47,7 @@
   <!-- Hero -->
   <section class="hero" id="home">
     <div class="hero__bg" aria-hidden="true"></div>
+    <canvas class="hero__canvas" id="heroCanvas" aria-hidden="true"></canvas>
     <div class="container hero__inner">
       <div class="hero__avatar reveal">
         <span class="hero__avatar-fallback">RG</span>
@@ -364,65 +365,151 @@
         <span class="section__kicker">05 — Projects</span>
         <h2 class="section__title">Selected work</h2>
       </div>
-      <div class="projects__grid">
-        <article class="project-card reveal">
-          <div class="project-card__top">
-            <h3 class="project-card__title">ToraTax — AI Tax Platform</h3>
-            <span class="project-card__badge">Co-Founder</span>
-          </div>
-          <p class="project-card__desc">
-            An AI-powered tax filing and calculation platform for the Indian market.
-            Built with Generative AI, RAG, and agentic workflows — serving 3,000+ monthly visitors.
-          </p>
-          <div class="pills pills--sm">
-            <span class="pill">Generative AI</span>
-            <span class="pill">RAG</span>
-            <span class="pill">React</span>
-            <span class="pill">Firebase</span>
-          </div>
-          <a href="https://www.toratax.com" target="_blank" rel="noopener" class="project-card__link">
-            Visit toratax.com →
-          </a>
-        </article>
+      <div class="projects__carousel reveal" id="projectsCarousel" aria-label="Selected projects, auto-scrolling. Hover to pause.">
+        <div class="projects__track" id="projectsTrack">
+          <article class="project-card">
+            <div class="project-card__top">
+              <h3 class="project-card__title">ToraTax — AI Tax Platform</h3>
+              <span class="project-card__badge">Co-Founder</span>
+            </div>
+            <span class="project-card__pick">★ Recommended</span>
+            <p class="project-card__desc">
+              An AI-powered tax filing and calculation platform for the Indian market.
+              Built with Generative AI, RAG, and agentic workflows — serving 3,000+ monthly visitors.
+            </p>
+            <div class="pills pills--sm">
+              <span class="pill">Generative AI</span>
+              <span class="pill">RAG</span>
+              <span class="pill">React</span>
+              <span class="pill">Firebase</span>
+            </div>
+            <a href="https://www.toratax.com" target="_blank" rel="noopener" class="project-card__link">
+              Visit toratax.com →
+            </a>
+          </article>
 
-        <article class="project-card reveal">
-          <div class="project-card__top">
-            <h3 class="project-card__title">Readmission Prevention in Healthcare</h3>
-            <span class="project-card__badge">Research</span>
-          </div>
-          <p class="project-card__desc">
-            Predictive modeling on CMS datasets comparing Logistic Regression, Random Forest,
-            Gradient Boosting, SVM, XGBoost, EBM, and stacked ensembles for hospital
-            readmission risk.
-          </p>
-          <div class="pills pills--sm">
-            <span class="pill">Python</span>
-            <span class="pill">XGBoost</span>
-            <span class="pill">EBM</span>
-            <span class="pill">CMS Data</span>
-          </div>
-          <a href="https://github.com/RajatGoel19/Readmission-Prevention-in-Healthcare-using-AI" target="_blank" rel="noopener" class="project-card__link">
-            View on GitHub →
-          </a>
-        </article>
+          <article class="project-card">
+            <div class="project-card__top">
+              <h3 class="project-card__title">Readmission Prevention in Healthcare</h3>
+              <span class="project-card__badge">Research</span>
+            </div>
+            <span class="project-card__pick">★ Recommended</span>
+            <p class="project-card__desc">
+              Predictive modeling on CMS datasets comparing Logistic Regression, Random Forest,
+              Gradient Boosting, SVM, XGBoost, EBM, and stacked ensembles for hospital
+              readmission risk.
+            </p>
+            <div class="pills pills--sm">
+              <span class="pill">Python</span>
+              <span class="pill">XGBoost</span>
+              <span class="pill">EBM</span>
+              <span class="pill">CMS Data</span>
+            </div>
+            <a href="https://github.com/RajatGoel19/Readmission-Prevention-in-Healthcare-using-AI" target="_blank" rel="noopener" class="project-card__link">
+              View on GitHub →
+            </a>
+          </article>
 
-        <article class="project-card reveal">
-          <div class="project-card__top">
-            <h3 class="project-card__title">Medicaid Compliance AI Agents</h3>
-            <span class="project-card__badge">Enterprise</span>
-          </div>
-          <p class="project-card__desc">
-            Microsoft Copilot AI agents that automate Medicaid compliance QA — reducing
-            manpower by 50% while maintaining 100% HIPAA compliance across care-team workflows.
-          </p>
-          <div class="pills pills--sm">
-            <span class="pill">Microsoft Copilot</span>
-            <span class="pill">Generative AI</span>
-            <span class="pill">HIPAA</span>
-            <span class="pill">Automation</span>
-          </div>
-        </article>
+          <article class="project-card">
+            <div class="project-card__top">
+              <h3 class="project-card__title">Medicaid Compliance AI Agents</h3>
+              <span class="project-card__badge">Enterprise</span>
+            </div>
+            <span class="project-card__pick">★ Recommended</span>
+            <p class="project-card__desc">
+              Microsoft Copilot AI agents that automate Medicaid compliance QA — reducing
+              manpower by 50% while maintaining 100% HIPAA compliance across care-team workflows.
+            </p>
+            <div class="pills pills--sm">
+              <span class="pill">Microsoft Copilot</span>
+              <span class="pill">Generative AI</span>
+              <span class="pill">HIPAA</span>
+              <span class="pill">Automation</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card__top">
+              <h3 class="project-card__title">US Stock Market Analysis</h3>
+              <span class="project-card__badge">Data Science</span>
+            </div>
+            <p class="project-card__desc">
+              Time-series exploration of US stock-market data in Python — surfacing trends,
+              volatility, and moving-average signals across major tickers.
+            </p>
+            <div class="pills pills--sm">
+              <span class="pill">Python</span>
+              <span class="pill">Pandas</span>
+              <span class="pill">Time-Series</span>
+              <span class="pill">Matplotlib</span>
+            </div>
+            <a href="https://github.com/RajatGoel19/us-stock-market-analysis" target="_blank" rel="noopener" class="project-card__link">
+              View on GitHub →
+            </a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card__top">
+              <h3 class="project-card__title">Taxi Trip Data Analysis</h3>
+              <span class="project-card__badge">Data Science</span>
+            </div>
+            <p class="project-card__desc">
+              Exploratory analysis of large-scale taxi-trip data across a series of Jupyter
+              notebooks — surfacing demand patterns, fare trends, and trip geography.
+            </p>
+            <div class="pills pills--sm">
+              <span class="pill">Python</span>
+              <span class="pill">Pandas</span>
+              <span class="pill">EDA</span>
+              <span class="pill">Jupyter</span>
+            </div>
+            <a href="https://github.com/RajatGoel19/taxi-data-analysis" target="_blank" rel="noopener" class="project-card__link">
+              View on GitHub →
+            </a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card__top">
+              <h3 class="project-card__title">ODI Cricket Analytics</h3>
+              <span class="project-card__badge">Data Science</span>
+            </div>
+            <p class="project-card__desc">
+              Analysis of ODI international cricket data to identify top run-scorers and
+              performance trends, built in a Python and Jupyter workflow.
+            </p>
+            <div class="pills pills--sm">
+              <span class="pill">Python</span>
+              <span class="pill">Pandas</span>
+              <span class="pill">Jupyter</span>
+              <span class="pill">Data Viz</span>
+            </div>
+            <a href="https://github.com/RajatGoel19/odi-cricket-analysis" target="_blank" rel="noopener" class="project-card__link">
+              View on GitHub →
+            </a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card__top">
+              <h3 class="project-card__title">Reddit Terminal Uploader</h3>
+              <span class="project-card__badge">Open Source</span>
+            </div>
+            <p class="project-card__desc">
+              A command-line tool to upload photos and videos to Reddit straight from the
+              terminal, built with Python and the PRAW API wrapper.
+            </p>
+            <div class="pills pills--sm">
+              <span class="pill">Python</span>
+              <span class="pill">PRAW</span>
+              <span class="pill">CLI</span>
+              <span class="pill">Reddit API</span>
+            </div>
+            <a href="https://github.com/RajatGoel19/reddit-terminal-uploader" target="_blank" rel="noopener" class="project-card__link">
+              View on GitHub →
+            </a>
+          </article>
+        </div>
       </div>
+      <p class="projects__hint reveal">Hover any card to pause · scroll down for more →</p>
     </div>
   </section>
 

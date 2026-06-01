@@ -170,6 +170,15 @@ ul { list-style: none; }
   background-size: 48px 48px;
   mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
 }
+.hero__canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+.hero__canvas.is-on { opacity: 1; }
 .hero__inner { position: relative; z-index: 2; max-width: 860px; }
 .hero__avatar {
   position: relative;
@@ -533,6 +542,68 @@ ul { list-style: none; }
   transition: gap .2s ease, color .2s ease;
 }
 .project-card__link:hover { color: var(--teal-500); }
+.project-card__pick {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin: -2px 0 14px;
+  padding: 4px 11px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--teal-600);
+  background: rgba(20, 184, 166, 0.10);
+  border: 1px solid rgba(20, 184, 166, 0.28);
+  border-radius: 999px;
+}
+
+/* ===== Projects carousel (auto-sliding marquee, right → left) ===== */
+.projects__carousel {
+  position: relative;
+  overflow: hidden;
+  padding: 6px 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+}
+.projects__track {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+}
+.projects__track .project-card {
+  flex: 0 0 360px;
+  width: 360px;
+}
+.projects__track.is-marquee {
+  width: max-content;
+  animation: projMarquee 70s linear infinite;
+  will-change: transform;
+}
+.projects__carousel:hover .projects__track.is-marquee,
+.projects__carousel:focus-within .projects__track.is-marquee {
+  animation-play-state: paused;
+}
+@keyframes projMarquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+/* Fallback when JS hasn't enabled the marquee: a scrollable row */
+.projects__carousel:not(:has(.is-marquee)) .projects__track {
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  padding-bottom: 10px;
+}
+.projects__carousel:not(:has(.is-marquee)) .project-card { scroll-snap-align: start; }
+.projects__hint {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--slate-light);
+  letter-spacing: 0.01em;
+}
 
 /* ===== Services ===== */
 .services__grid {

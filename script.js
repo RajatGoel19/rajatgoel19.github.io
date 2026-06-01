@@ -110,6 +110,20 @@ if (certFilter && certGrid) {
   });
 }
 
+// ===== Projects marquee (auto-slide, right → left) =====
+const projTrack = document.getElementById('projectsTrack');
+if (projTrack && window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+  // Duplicate the card set so the loop is seamless (track animates to -50%).
+  // Clones are decorative: hidden from assistive tech and removed from tab order.
+  Array.from(projTrack.children).forEach((card) => {
+    const clone = card.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    clone.querySelectorAll('a').forEach((a) => a.setAttribute('tabindex', '-1'));
+    projTrack.appendChild(clone);
+  });
+  projTrack.classList.add('is-marquee');
+}
+
 // ===== Cursor-reactive card spotlight =====
 if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
   const spotlightCards = document.querySelectorAll('.service-card, .project-card, .cert-card, .skill-card, .testi-card');
@@ -120,4 +134,90 @@ if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
       card.style.setProperty('--my', ((e.clientY - rect.top) / rect.height) * 100 + '%');
     });
   });
+}
+
+// ===== Interactive hero particle network =====
+// A living, cursor-reactive constellation behind the hero — motion without a video file.
+const heroCanvas = document.getElementById('heroCanvas');
+const heroEl = document.getElementById('home');
+if (heroCanvas && heroEl && window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+  const ctx = heroCanvas.getContext('2d');
+  const mouse = { x: -9999, y: -9999 };
+  let w = 0, h = 0, dpr = 1, particles = [], raf = null;
+  const rand = (min, max) => Math.random() * (max - min) + min;
+  const LINK = 128;   // px distance to draw a connecting line
+  const PULL = 150;   // px radius the cursor influences
+
+  const build = () => {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = heroEl.clientWidth;
+    h = heroEl.clientHeight;
+    heroCanvas.width = w * dpr;
+    heroCanvas.height = h * dpr;
+    heroCanvas.style.width = w + 'px';
+    heroCanvas.style.height = h + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const count = Math.max(22, Math.min(76, Math.round((w * h) / 16000)));
+    particles = Array.from({ length: count }, () => ({
+      x: rand(0, w), y: rand(0, h),
+      vx: rand(-0.22, 0.22), vy: rand(-0.22, 0.22),
+      r: rand(1, 2.4),
+    }));
+  };
+
+  const draw = () => {
+    ctx.clearRect(0, 0, w, h);
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+      const dxm = mouse.x - p.x, dym = mouse.y - p.y;
+      const dm = Math.hypot(dxm, dym);
+      if (dm < PULL && dm > 0.1) {
+        p.vx += (dxm / dm) * 0.012;
+        p.vy += (dym / dm) * 0.012;
+      }
+      p.x += p.vx; p.y += p.vy;
+      p.vx *= 0.99; p.vy *= 0.99;
+      if (p.x < 0) p.x = w; else if (p.x > w) p.x = 0;
+      if (p.y < 0) p.y = h; else if (p.y > h) p.y = 0;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(45, 212, 191, 0.55)';
+      ctx.fill();
+      for (let j = i + 1; j < particles.length; j++) {
+        const q = particles[j];
+        const dx = p.x - q.x, dy = p.y - q.y;
+        const d = Math.hypot(dx, dy);
+        if (d < LINK) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(q.x, q.y);
+          ctx.strokeStyle = 'rgba(45, 212, 191, ' + (0.18 * (1 - d / LINK)).toFixed(3) + ')';
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      }
+    }
+    raf = requestAnimationFrame(draw);
+  };
+  const start = () => { if (!raf) draw(); };
+  const stop = () => { if (raf) { cancelAnimationFrame(raf); raf = null; } };
+
+  heroEl.addEventListener('pointermove', (e) => {
+    const rect = heroEl.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  });
+  heroEl.addEventListener('pointerleave', () => { mouse.x = -9999; mouse.y = -9999; });
+  window.addEventListener('resize', build, { passive: true });
+
+  build();
+  requestAnimationFrame(() => heroCanvas.classList.add('is-on'));
+  start();
+
+  // Pause the loop while the hero is scrolled out of view to save battery.
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver((entries) => {
+      entries.forEach((entry) => (entry.isIntersecting ? start() : stop()));
+    }, { threshold: 0 }).observe(heroEl);
+  }
 }
