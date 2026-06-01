@@ -110,18 +110,23 @@ if (certFilter && certGrid) {
   });
 }
 
-// ===== Projects marquee (auto-slide, right → left) =====
-const projTrack = document.getElementById('projectsTrack');
-if (projTrack && window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
-  // Duplicate the card set so the loop is seamless (track animates to -50%).
-  // Clones are decorative: hidden from assistive tech and removed from tab order.
-  Array.from(projTrack.children).forEach((card) => {
+// ===== Auto-slide marquees (Projects right→left, Research left→right) =====
+// Duplicate each track's card set so the loop is seamless (track animates a
+// full set-width). Clones are decorative: hidden from assistive tech and
+// removed from tab order. CSS handles direction, speed, and hover-to-pause.
+function enableMarquee(track) {
+  if (!track) return;
+  Array.from(track.children).forEach((card) => {
     const clone = card.cloneNode(true);
     clone.setAttribute('aria-hidden', 'true');
     clone.querySelectorAll('a').forEach((a) => a.setAttribute('tabindex', '-1'));
-    projTrack.appendChild(clone);
+    track.appendChild(clone);
   });
-  projTrack.classList.add('is-marquee');
+  track.classList.add('is-marquee');
+}
+if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+  enableMarquee(document.getElementById('projectsTrack'));
+  enableMarquee(document.getElementById('researchTrack'));
 }
 
 // ===== Cursor-reactive card spotlight =====

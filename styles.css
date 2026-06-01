@@ -513,33 +513,46 @@ ul { list-style: none; }
 .research-card--feature .research-card__desc { color: rgba(255, 255, 255, 0.80); }
 .research-card__authors { font-size: 14px; color: rgba(255, 255, 255, 0.62); }
 .research-card__authors span { color: var(--teal-400); }
-.research-card__reviewed {
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
-  color: var(--slate-light);
-  margin-bottom: 12px;
-}
-.research-card__list { list-style: none; display: grid; gap: 11px; }
-.research-card__list li {
+.research-card__desc em { font-style: italic; color: var(--navy-700); }
+
+/* ===== Research carousel (auto-sliding marquee, left → right) ===== */
+.research__carousel {
   position: relative;
-  padding-left: 20px;
-  font-size: 14.5px;
-  line-height: 1.45;
-  color: var(--slate);
-  font-style: italic;
+  overflow: hidden;
+  padding: 6px 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
 }
-.research-card__list li::before {
-  content: "";
-  position: absolute;
-  left: 2px;
-  top: 8px;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--teal-600);
+.research__track {
+  display: flex;
+  gap: 24px;
+  width: 100%;
 }
+.research__track .research-card {
+  flex: 0 0 380px;
+  width: 380px;
+}
+.research__track .research-card:not(.research-card--feature) .research-card__venue { color: var(--teal-600); }
+.research__track.is-marquee {
+  width: max-content;
+  animation: researchMarquee 64s linear infinite;
+  will-change: transform;
+}
+.research__carousel:hover .research__track.is-marquee,
+.research__carousel:focus-within .research__track.is-marquee {
+  animation-play-state: paused;
+}
+@keyframes researchMarquee {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+/* Fallback when JS hasn't enabled the marquee: a scrollable row */
+.research__carousel:not(:has(.is-marquee)) .research__track {
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  padding-bottom: 10px;
+}
+.research__carousel:not(:has(.is-marquee)) .research-card { scroll-snap-align: start; }
 
 /* ===== Projects ===== */
 .projects__grid {
