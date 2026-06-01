@@ -525,6 +525,9 @@ ul { list-style: none; }
 }
 .research__track {
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
   gap: 24px;
   width: 100%;
 }
